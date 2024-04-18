@@ -18,14 +18,36 @@
     </fieldset>
  
     <?php
-    if(array_key_exists('nome', $_GET))
-    {
-      echo "Nome tarefa informada: " . $_GET['nome'];
-    }
+      session_start();
+      $lista_tarefas = [];
 
+      if(array_key_exists('nome', $_GET)) {
+        //echo "Nome tarefa informada: " . $_GET['nome'];
+        $_SESSION['lista_tarefas'] [] = $_GET['nome'];
+      }
 
-    ?>
+      if(array_key_exists('lista_tarefas', $_SESSION)){
+        $lista_tarefas = $_SESSION['lista_tarefas'];
+      }else{
+        $lista_tarefas = [];
+      }
+      ?>
 
+    <table>
+      <tr>
+        <th>Tarefas</th>
+      </tr>
+
+    <?php
+      foreach($lista_tarefas as $tarefa) : ?>
+
+    <tr>
+      <td>
+        <?php echo $tarefa; ?>
+      </td>
+    </tr>
+     <?php endforeach; ?>
+    </table>
   </form>
 </body>
 </html>

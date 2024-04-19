@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>Gerenciador de tarefas</h1>
-  <form action="">
+  <form>
     <fieldset>
       <legend>Nova tarefa</legend>
       <label>
